@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог товаров</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="index.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-primary text-white py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div class="logo">
+                <img src="icons/ok.svg" alt="Логотип">
+            </div>
+            
+            <!-- Строка поиска -->
+            <form class="search-form d-flex mx-3 align-items-center">
+                <input type="text" class="form-control" placeholder="Поиск товаров..." aria-label="Search">
+                <button type="button" class="btn btn-light ms-2">
+                    <i class="fas fa-search"></i> <!-- Значок поиска -->
+                </button>
+            </form>
+            
+            <!-- Навигация с иконками -->
+            <nav>
+                <a href="cart.html" class="text-white me-3">
+                    <i class="fas fa-shopping-cart"></i> <!-- Значок корзины -->
+                </a>
+                <a href="orders.html" class="text-white">
+                    <i class="fas fa-user"></i> <!-- Значок личного кабинета -->
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container my-4">
+        <div class="row">
+            <!-- Sidebar -->
+            <aside class="col-md-3 bg-light p-3 rounded">
+                <h5>Категории</h5>
+                <ul class="list-unstyled">
+                    <li><input type="checkbox" class="form-check-input me-2" value="home & kitchen"> Дом & Кухня</li>
+                    <li><input type="checkbox" class="form-check-input me-2" value="tv, audio & cameras"> ТВ, аудио & камеры</li>
+                    <li><input type="checkbox" class="form-check-input me-2" value="sports & fitness"> Спорт & фитнес</li>
+                    <li><input type="checkbox" class="form-check-input me-2" value="beauty & health"> Красота & здоровье</li>
+                </ul>
+                <hr>
+                <h5>Стоимость</h5>
+                <label for="price-min" class="form-label">От</label>
+                <input type="number" id="price-min" class="form-control mb-2" min="0" value="100">
+                <label for="price-max" class="form-label">До</label>
+                <input type="number" id="price-max" class="form-control mb-2" min="0" value="5000">
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="discount-only">
+                    <label for="discount-only" class="form-check-label">Только товары со скидками</label>
+                </div>
+                <button class="btn btn-info w-100 mt-3">Применить</button>
+            </aside>
+
+            <!-- Catalog -->
+            <section class="col-md-9">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5>Каталог</h5>
+                    <select id="sort_order" class="form-select w-auto">
+                        <option value="rating_desc">По убыванию рейтинга</option>
+                        <option value="rating_asc">По возрастанию рейтинга</option>
+                        <option value="price_desc">По убыванию цены</option>
+                        <option value="price_asc">По возрастанию цены</option>
+                    </select>
+                </div>
+                <div class="row g-4 product-container">
+                    <!-- Карточки товаров будут добавляться здесь через JavaScript -->
+                </div>
+                <div id="pagination" class="d-flex justify-content-center mt-4">
+                    <!-- Кнопки навигации будут добавляться сюда через JavaScript -->
+                </div>
+                <div id="notification-container" style="display: none;"></div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white text-center py-3 mt-auto">
+        &copy;2025 examproject.com
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

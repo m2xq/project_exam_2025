@@ -1,0 +1,364 @@
+/* Общие стили */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+h5 {
+    font-weight: bold; /* Сделать слова "Категории", "Каталог" и "Стоимость" жирными */
+}
+
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    display: flex; /* Для центрирования или размещения внутри контейнера */
+    align-items: center; /* Выравнивание по вертикали */
+    justify-content: center; /* Выравнивание по горизонтали */
+    height: 50px; /* Высота логотипа (подстраивается под изображение) */
+}
+
+.logo img {
+    height: 100%; /* Изображение будет занимать всю высоту родительского элемента */
+    width: auto; /* Ширина автоматически подстраивается для сохранения пропорций */
+}
+
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    display: flex;
+    flex: 1;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+aside {
+    width: 250px;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #007bff;
+    color: white;
+    margin-top: auto;
+}
+
+/* Карточки товаров */
+.product-container {
+    display: flex;
+    flex-wrap: wrap; /* Позволяет карточкам переноситься на новую строку */
+    justify-content: space-between; /* Размещает карточки с равным расстоянием */
+    gap: 20px; /* Отступы между карточками */
+}
+
+.product-card {
+    width: calc(50% - 20px); /* Половина ширины строки за вычетом отступов */
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    box-sizing: border-box; /* Учитываем padding и border */
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+    margin-bottom: 15px;
+    border: 1px dashed #ccc;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+}
+
+.product-card h2 {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #333;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.product-card .price-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 10px 0;
+}
+
+.product-card .price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #28a745;
+    text-align: center;
+}
+
+.product-card .discount-price {
+    font-size: 18px;
+    text-decoration: line-through;
+    color: #dc3545;
+    text-align: center;
+}
+
+.product-card .discount-percent {
+    font-size: 18px;
+    font-weight: bold;
+    color: #dc3545;
+    text-align: center;
+}
+
+.product-card button {
+    padding: 10px;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: auto;
+    transition: background-color 0.3s;
+}
+
+.product-card button:hover {
+    background-color: #5a6268;
+}
+
+.product-card .rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #ffc107;
+}
+
+.product-card .rating span {
+    color: #333;
+}
+
+/* Оформление уведомлений */
+#notification-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 300px;
+    z-index: 1000;
+}
+
+#notification-container .alert {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s ease-in-out;
+}
+
+#notification-container .alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+#notification-container .alert-warning {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+}
+
+#notification-container .alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+#notification-container .btn-close {
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: #333;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+#notification-container .btn-close:hover {
+    color: #555;
+}
+
+/* Панель навигации */
+#pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+#pagination .page-button {
+    padding: 8px 12px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    color: #007bff;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#pagination .page-button:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+#pagination .page-button.active {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+}
+
+/* Стили для формы заказа */
+.order-form {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.order-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.order-section label {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.order-section input,
+.order-section textarea,
+.order-section select {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.order-section input:focus,
+.order-section textarea:focus,
+.order-section select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.order-section textarea {
+    resize: none;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.form-actions button {
+    padding: 10px 15px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-actions button:hover {
+    background-color: #007bff;
+}
+
+.form-actions button[type="reset"] {
+    background-color: #007bff;
+}
+
+.form-actions button[type="reset"]:hover {
+    background-color: #007bff;
+}
+
+/* Стили для итоговой стоимости */
+#total-price {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #333;
+}
+
+#delivery-price {
+    font-size: 14px;
+    color: #555;
+}
+
+.btn-info {
+    background-color: #007bff !important; /* Устанавливает синий цвет фона */
+    border-color: #007bff !important;    /* Устанавливает синий цвет рамки */
+    color: white !important;            /* Устанавливает белый цвет текста */
+}
+
+.btn-info:hover {
+    background-color: #0056b3 !important; /* Более тёмный оттенок синего при наведении */
+    border-color: #0056b3 !important;
+}
